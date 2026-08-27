@@ -1,1387 +1,2478 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="theme-color" content="#080808">
-  <meta name="description" content="Rajesh Studio — Graphic Designer, Video Editor and Motion Graphics Designer.">
+  <title>Rajesh Studio | Graphic Design • Video Editing • Motion Graphics</title>
 
-  <title>Rajesh Studio | Graphic Designer · Video Editor · Motion Graphics</title>
+  <meta
+    name="description"
+    content="Rajesh Studio — Graphic Designer, Video Editor and Motion Graphics Designer."
+  >
 
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Crect width=%27100%27 height=%27100%27 fill=%27%23080808%27/%3E%3Ctext x=%2750%27 y=%2765%27 text-anchor=%27middle%27 font-size=%2760%27 fill=%27%23e50914%27%3ERS%3C/text%3E%3C/svg%3E">
+  <style>
+    :root {
+      --red: #e50914;
+      --red-dark: #a80008;
+      --black: #070707;
+      --dark: #0e0e0e;
+      --dark-2: #151515;
+      --white: #ffffff;
+      --muted: #999999;
+      --border: rgba(255,255,255,.12);
+      --max: 1200px;
+    }
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    html {
+      scroll-behavior: smooth;
+    }
 
-  <link rel="stylesheet" href="styles.css">
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: Arial, Helvetica, sans-serif;
+      overflow-x: hidden;
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .container {
+      width: min(92%, var(--max));
+      margin: auto;
+    }
+
+    /* ================= HEADER ================= */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 999;
+      background: rgba(7,7,7,.88);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-wrap {
+      width: min(92%, 1400px);
+      height: 80px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: var(--red);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+    }
+
+    nav a {
+      color: #ddd;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      transition: .3s;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--red);
+    }
+
+    .nav-btn {
+      border: 1px solid var(--red);
+      padding: 12px 17px;
+      color: white !important;
+    }
+
+    .nav-btn:hover {
+      background: var(--red);
+    }
+
+    .menu {
+      display: none;
+      width: 44px;
+      height: 44px;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: white;
+      cursor: pointer;
+    }
+
+    .menu span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: white;
+      margin: 5px auto;
+    }
+
+    /* ================= HERO ================= */
+
+    .hero {
+      min-height: 100vh;
+      padding-top: 80px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 700px;
+      height: 700px;
+      right: -300px;
+      top: 100px;
+      background: radial-gradient(
+        circle,
+        rgba(229,9,20,.28),
+        transparent 68%
+      );
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      width: min(92%, 1400px);
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .availability {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 9px 13px;
+      border: 1px solid var(--border);
+      color: #ddd;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      margin-bottom: 25px;
+    }
+
+    .availability i {
+      width: 7px;
+      height: 7px;
+      background: #27d96f;
+      border-radius: 50%;
+      box-shadow: 0 0 12px #27d96f;
+    }
+
+    .eyebrow {
+      color: var(--red);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 {
+      font-size: clamp(65px, 9vw, 145px);
+      line-height: .82;
+      letter-spacing: -7px;
+      font-weight: 900;
+    }
+
+    .hero h1 em,
+    h2 em {
+      color: var(--red);
+      font-style: normal;
+    }
+
+    .hero-sub {
+      margin-top: 30px;
+      color: #ddd;
+      font-weight: 700;
+      font-size: 15px;
+    }
+
+    .hero-text {
+      max-width: 570px;
+      color: #888;
+      margin-top: 14px;
+      font-size: 15px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 21px;
+      border: 1px solid var(--red);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      transition: .3s;
+      cursor: pointer;
+    }
+
+    .btn-red {
+      background: var(--red);
+      color: white;
+    }
+
+    .btn-red:hover {
+      background: transparent;
+    }
+
+    .btn-outline {
+      border-color: var(--border);
+      color: #ddd;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--red);
+      color: var(--red);
+    }
+
+    /* HERO VISUAL */
+
+    .hero-visual {
+      min-height: 560px;
+      position: relative;
+      display: grid;
+      place-items: center;
+    }
+
+    .hero-circle {
+      width: min(470px, 70vw);
+      aspect-ratio: 1;
+      border: 1px solid rgba(229,9,20,.5);
+      border-radius: 50%;
+      position: relative;
+      animation: rotate 18s linear infinite;
+    }
+
+    .hero-circle::before,
+    .hero-circle::after {
+      content: "";
+      position: absolute;
+      inset: 45px;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 50%;
+    }
+
+    .hero-circle::after {
+      inset: 95px;
+      border-color: rgba(229,9,20,.22);
+    }
+
+    @keyframes rotate {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .hero-center {
+      position: absolute;
+      inset: 50%;
+      transform: translate(-50%,-50%);
+      width: 230px;
+      height: 230px;
+      background:
+        linear-gradient(135deg, rgba(229,9,20,.9), #280000);
+      display: grid;
+      place-items: center;
+      clip-path: polygon(
+        50% 0,
+        100% 25%,
+        88% 80%,
+        50% 100%,
+        12% 80%,
+        0 25%
+      );
+      box-shadow: 0 0 80px rgba(229,9,20,.28);
+    }
+
+    .hero-center span {
+      font-size: 70px;
+      font-weight: 900;
+      letter-spacing: -7px;
+    }
+
+    .hero-label {
+      position: absolute;
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      background: #090909;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .label-one {
+      top: 16%;
+      right: 3%;
+    }
+
+    .label-two {
+      bottom: 18%;
+      left: 2%;
+    }
+
+    .label-three {
+      top: 48%;
+      right: -3%;
+    }
+
+    /* ================= SECTIONS ================= */
+
+    section {
+      position: relative;
+    }
+
+    .section {
+      padding: 120px 0;
+    }
+
+    .section-title {
+      margin-bottom: 60px;
+    }
+
+    h2 {
+      font-size: clamp(45px, 6vw, 85px);
+      line-height: .9;
+      letter-spacing: -4px;
+      font-weight: 900;
+    }
+
+    /* ================= MARQUEE ================= */
+
+    .marquee {
+      overflow: hidden;
+      background: var(--red);
+      padding: 18px 0;
+      white-space: nowrap;
+    }
+
+    .marquee-track {
+      width: max-content;
+      display: flex;
+      gap: 25px;
+      align-items: center;
+      animation: marquee 25s linear infinite;
+    }
+
+    .marquee span {
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: 2px;
+    }
+
+    .marquee b {
+      font-size: 18px;
+    }
+
+    @keyframes marquee {
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* ================= ABOUT ================= */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .profile {
+      min-height: 470px;
+      background:
+        linear-gradient(
+          145deg,
+          #181818,
+          #080808
+        );
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+    }
+
+    .profile::before {
+      content: "";
+      position: absolute;
+      width: 330px;
+      height: 330px;
+      border-radius: 50%;
+      border: 70px solid rgba(229,9,20,.08);
+    }
+
+    .initials {
+      font-size: 110px;
+      font-weight: 900;
+      color: var(--red);
+      letter-spacing: -12px;
+      z-index: 2;
+    }
+
+    .profile-name {
+      position: absolute;
+      left: 25px;
+      bottom: 25px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .about-copy .big {
+      font-size: 29px;
+      line-height: 1.2;
+      font-weight: 600;
+      color: #eee;
+      margin-bottom: 25px;
+    }
+
+    .about-copy p:not(.big) {
+      color: #888;
+      max-width: 700px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      border-top: 1px solid var(--border);
+      margin-top: 45px;
+      padding-top: 25px;
+      gap: 20px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 45px;
+      color: var(--red);
+      line-height: 1;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 8px;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: #777;
+    }
+
+    /* ================= SERVICES ================= */
+
+    .services {
+      background: #0a0a0a;
+    }
+
+    .service {
+      display: grid;
+      grid-template-columns: 60px 60px 1fr 40px;
+      gap: 20px;
+      align-items: center;
+      border-top: 1px solid var(--border);
+      padding: 28px 0;
+      transition: .3s;
+    }
+
+    .service:last-child {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .service:hover {
+      padding-left: 15px;
+      background: rgba(229,9,20,.035);
+    }
+
+    .service-no {
+      color: var(--red);
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .service-icon {
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--border);
+      display: grid;
+      place-items: center;
+      color: var(--red);
+    }
+
+    .service h3 {
+      font-size: 22px;
+      margin-bottom: 5px;
+    }
+
+    .service p {
+      color: #777;
+      max-width: 700px;
+      font-size: 13px;
+    }
+
+    .service-arrow {
+      color: var(--red);
+      font-size: 25px;
+    }
+
+    /* ================= VIDEO ================= */
+
+    .video-intro {
+      display: grid;
+      grid-template-columns: 1fr .7fr;
+      gap: 70px;
+      align-items: end;
+      margin-bottom: 55px;
+    }
+
+    .video-intro > p {
+      color: #777;
+      max-width: 430px;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 18px;
+    }
+
+    .video-card {
+      border: 1px solid var(--border);
+      background: #0b0b0b;
+      overflow: hidden;
+    }
+
+    .video-media {
+      min-height: 340px;
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at 70% 30%, #ef1a27, transparent 30%),
+        linear-gradient(135deg,#1c0000,#050505 70%);
+    }
+
+    .video-card:nth-child(2) .video-media {
+      background:
+        radial-gradient(circle at 25% 60%, #b7000b, transparent 35%),
+        linear-gradient(135deg,#151515,#050505);
+    }
+
+    .video-card:nth-child(3) .video-media {
+      background:
+        linear-gradient(
+          135deg,
+          #290000,
+          #050505 50%,
+          #8e0008
+        );
+    }
+
+    .video-media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          115deg,
+          transparent 40%,
+          rgba(255,255,255,.08) 41%,
+          transparent 42%
+        );
+      transform: translateX(-100%);
+      transition: 1s;
+    }
+
+    .video-card:hover .video-media::after {
+      transform: translateX(100%);
+    }
+
+    .play {
+      width: 65px;
+      height: 65px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.5);
+      color: white;
+      background: rgba(0,0,0,.35);
+      cursor: pointer;
+      z-index: 2;
+      transition: .3s;
+    }
+
+    .play:hover {
+      background: var(--red);
+      border-color: var(--red);
+      transform: scale(1.1);
+    }
+
+    .media-label {
+      position: absolute;
+      left: 18px;
+      top: 18px;
+      z-index: 2;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .timeline {
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 20px;
+      height: 2px;
+      background: rgba(255,255,255,.2);
+    }
+
+    .timeline::before {
+      content: "";
+      display: block;
+      width: 35%;
+      height: 100%;
+      background: var(--red);
+    }
+
+    .video-info {
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .video-info h3 {
+      font-size: 15px;
+    }
+
+    .video-info span {
+      color: #777;
+      font-size: 10px;
+    }
+
+    /* ================= MOTION ================= */
+
+    .motion {
+      background: #0b0b0b;
+    }
+
+    .motion-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .motion-art {
+      min-height: 500px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background:
+        radial-gradient(
+          circle,
+          rgba(229,9,20,.35),
+          transparent 30%
+        ),
+        #050505;
+      display: grid;
+      place-items: center;
+    }
+
+    .motion-art::before,
+    .motion-art::after {
+      content: "";
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border: 1px solid rgba(229,9,20,.3);
+      border-radius: 50%;
+      animation: pulse 4s ease-in-out infinite;
+    }
+
+    .motion-art::after {
+      width: 350px;
+      height: 350px;
+      animation-delay: 1s;
+    }
+
+    @keyframes pulse {
+      50% {
+        transform: scale(1.15);
+        opacity: .3;
+      }
+    }
+
+    .motion-word {
+      position: relative;
+      z-index: 2;
+      font-size: clamp(70px, 10vw, 145px);
+      font-weight: 900;
+      letter-spacing: -9px;
+      transform: skew(-10deg);
+    }
+
+    .motion-copy p {
+      color: #888;
+      max-width: 560px;
+      margin: 25px 0;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 30px;
+    }
+
+    .chip {
+      border: 1px solid var(--border);
+      padding: 9px 12px;
+      color: #aaa;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    /* ================= WORK ================= */
+
+    .work-intro {
+      display: grid;
+      grid-template-columns: 1fr .6fr;
+      gap: 70px;
+      align-items: end;
+      margin-bottom: 50px;
+    }
+
+    .work-intro > p {
+      color: #777;
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 30px;
+    }
+
+    .filter {
+      padding: 9px 13px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: #888;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: .25s;
+    }
+
+    .filter:hover,
+    .filter.active {
+      background: var(--red);
+      color: white;
+      border-color: var(--red);
+    }
+
+    .portfolio {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 22px;
+    }
+
+    .project {
+      min-width: 0;
+      border: 1px solid var(--border);
+      background: #0c0c0c;
+      overflow: hidden;
+      transition: .35s;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+      border-color: rgba(229,9,20,.5);
+    }
+
+    .project.hidden {
+      display: none;
+    }
+
+    .project-image {
+      height: 380px;
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+    }
+
+    .project-image::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          125deg,
+          transparent 40%,
+          rgba(255,255,255,.1) 41%,
+          transparent 43%
+        );
+      transform: translateX(-100%);
+      transition: .8s;
+    }
+
+    .project:hover .project-image::before {
+      transform: translateX(100%);
+    }
+
+    .project-number {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      font-size: 11px;
+      font-weight: 900;
+      z-index: 2;
+    }
+
+    .project-image span.big {
+      font-size: clamp(60px, 10vw, 120px);
+      font-weight: 900;
+      color: rgba(255,255,255,.9);
+      letter-spacing: -7px;
+    }
+
+    .p1 {
+      background:
+        radial-gradient(circle at 70% 30%, #ff3944, transparent 20%),
+        linear-gradient(135deg,#360006,#080808 65%);
+    }
+
+    .p2 {
+      background:
+        linear-gradient(145deg,#eee,#555);
+      color: #111;
+    }
+
+    .p3 {
+      background:
+        linear-gradient(145deg,#240000,#090909 55%,#850008);
+    }
+
+    .p4 {
+      background:
+        radial-gradient(circle at 50% 40%,#f20b18,transparent 30%),
+        linear-gradient(135deg,#190000,#050505);
+    }
+
+    .p5 {
+      background:
+        linear-gradient(145deg,#300006,#111,#650007);
+    }
+
+    .p6 {
+      background:
+        repeating-linear-gradient(
+          135deg,
+          #120000 0 20px,
+          #300006 20px 40px
+        );
+    }
+
+    .project-info {
+      padding: 18px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+    }
+
+    .project-info small {
+      color: var(--red);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .project-info h3 {
+      margin-top: 5px;
+      font-size: 17px;
+    }
+
+    .project-info p {
+      color: #666;
+      font-size: 11px;
+      margin-top: 4px;
+    }
+
+    .project-arrow {
+      color: var(--red);
+      font-size: 24px;
+    }
+
+    /* ================= PROCESS ================= */
+
+    .process {
+      background: var(--red);
+    }
+
+    .process .eyebrow {
+      color: white;
+    }
+
+    .process h2 em {
+      color: #080808;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      border-top: 1px solid rgba(255,255,255,.35);
+    }
+
+    .step {
+      padding: 35px 25px;
+      border-right: 1px solid rgba(255,255,255,.35);
+    }
+
+    .step:last-child {
+      border-right: 0;
+    }
+
+    .step-number {
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .step h3 {
+      font-size: 22px;
+      margin: 50px 0 10px;
+    }
+
+    .step p {
+      font-size: 12px;
+      color: rgba(255,255,255,.7);
+    }
+
+    /* ================= TESTIMONIAL ================= */
+
+    .testimonial {
+      max-width: 950px;
+      margin: auto;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 50px 0;
+    }
+
+    .quote-mark {
+      color: var(--red);
+      font-size: 90px;
+      line-height: .5;
+    }
+
+    .quote {
+      display: none;
+      font-size: clamp(28px, 4vw, 48px);
+      line-height: 1.12;
+      letter-spacing: -2px;
+      margin: 30px 0;
+    }
+
+    .quote.active {
+      display: block;
+    }
+
+    .quote-controls {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .quote-controls button {
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--border);
+      color: white;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .quote-controls button:hover {
+      border-color: var(--red);
+      background: var(--red);
+    }
+
+    #quoteNumber {
+      color: #777;
+      font-size: 10px;
+    }
+
+    /* ================= CONTACT ================= */
+
+    .contact {
+      background:
+        radial-gradient(
+          circle at 50% 100%,
+          rgba(229,9,20,.22),
+          transparent 50%
+        ),
+        #090909;
+      text-align: center;
+      border-top: 1px solid var(--border);
+    }
+
+    .contact h2 {
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .contact > .container > p:not(.eyebrow) {
+      max-width: 600px;
+      margin: 30px auto;
+      color: #888;
+    }
+
+    .contact-actions {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .email {
+      display: inline-block;
+      margin-top: 30px;
+      color: var(--red);
+      font-size: clamp(17px,3vw,27px);
+      font-weight: 800;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      padding: 50px 4%;
+      background: #050505;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .footer-top p {
+      color: #666;
+      margin-top: 10px;
+      font-size: 12px;
+    }
+
+    .socials {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .socials a {
+      color: #777;
+      font-size: 11px;
+    }
+
+    .socials a:hover {
+      color: var(--red);
+    }
+
+    .footer-bottom {
+      margin-top: 45px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      color: #555;
+      font-size: 10px;
+    }
+
+    /* ================= SCROLL REVEAL ================= */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity .8s ease, transform .8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ================= TOAST ================= */
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 30px;
+      transform: translate(-50%, 30px);
+      background: var(--red);
+      color: white;
+      padding: 12px 20px;
+      font-size: 11px;
+      font-weight: 800;
+      opacity: 0;
+      pointer-events: none;
+      transition: .3s;
+      z-index: 2000;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    @media (max-width: 1000px) {
+
+      nav {
+        gap: 14px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 130px;
+      }
+
+      .hero-visual {
+        min-height: 420px;
+      }
+
+      .about-grid,
+      .motion-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+
+      .video-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .video-card:first-child {
+        grid-column: 1 / -1;
+      }
+
+      .process-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .step:nth-child(2) {
+        border-right: 0;
+      }
+
+      .step:nth-child(1),
+      .step:nth-child(2) {
+        border-bottom: 1px solid rgba(255,255,255,.35);
+      }
+
+      .work-intro,
+      .video-intro {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 760px) {
+
+      .nav-wrap {
+        height: 70px;
+      }
+
+      .menu {
+        display: block;
+      }
+
+      nav {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+        background: #090909;
+        border-bottom: 1px solid var(--border);
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      nav.open {
+        display: flex;
+      }
+
+      nav a {
+        padding: 13px 5px;
+        border-bottom: 1px solid rgba(255,255,255,.05);
+      }
+
+      .nav-btn {
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: clamp(58px, 18vw, 100px);
+        letter-spacing: -5px;
+      }
+
+      .hero-visual {
+        min-height: 340px;
+      }
+
+      .hero-circle {
+        width: 300px;
+      }
+
+      .hero-center {
+        width: 150px;
+        height: 150px;
+      }
+
+      .hero-center span {
+        font-size: 45px;
+      }
+
+      .label-three {
+        right: 0;
+      }
+
+      .section {
+        padding: 80px 0;
+      }
+
+      h2 {
+        letter-spacing: -2px;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .service {
+        grid-template-columns: 40px 45px 1fr;
+      }
+
+      .service-arrow {
+        display: none;
+      }
+
+      .service h3 {
+        font-size: 17px;
+      }
+
+      .service p {
+        font-size: 12px;
+      }
+
+      .video-grid,
+      .portfolio {
+        grid-template-columns: 1fr;
+      }
+
+      .video-card:first-child {
+        grid-column: auto;
+      }
+
+      .project-image {
+        height: 300px;
+      }
+
+      .motion-art {
+        min-height: 350px;
+      }
+
+      .motion-word {
+        font-size: 75px;
+      }
+
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .step {
+        border-right: 0 !important;
+        border-bottom: 1px solid rgba(255,255,255,.35);
+      }
+
+      .step:last-child {
+        border-bottom: 0;
+      }
+
+      .footer-top,
+      .footer-bottom {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 420px) {
+
+      .hero h1 {
+        font-size: 57px;
+      }
+
+      .actions .btn {
+        width: 100%;
+      }
+
+      .hero-visual {
+        min-height: 290px;
+      }
+
+      .hero-circle {
+        width: 250px;
+      }
+
+      .hero-center {
+        width: 120px;
+        height: 120px;
+      }
+
+      .hero-center span {
+        font-size: 35px;
+      }
+
+      .label-one,
+      .label-two,
+      .label-three {
+        font-size: 8px;
+      }
+
+      .service {
+        grid-template-columns: 30px 1fr;
+      }
+
+      .service-icon {
+        display: none;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="noise"></div>
+<header>
+  <div class="nav-wrap">
 
-<div class="cursor-dot"></div>
-<div class="cursor-ring"></div>
-
-
-<!-- ================= HEADER ================= -->
-
-<header class="site-header" id="top">
-
-  <a class="logo" href="#home">
-    RAJESH<span>.STUDIO</span>
-  </a>
-
-  <button
-    class="menu-toggle"
-    aria-label="Open menu"
-    aria-expanded="false"
-  >
-    <span></span>
-    <span></span>
-  </button>
-
-  <nav class="nav">
-
-    <a class="active" href="#home">HOME</a>
-
-    <a href="#about">ABOUT</a>
-
-    <a href="#services">SERVICES</a>
-
-    <a href="#work">WORK</a>
-
-    <a href="#video">VIDEO</a>
-
-    <a href="#motion">MOTION</a>
-
-    <a href="#contact">CONTACT</a>
-
-    <a
-      class="nav-cta"
-      href="mailto:rajeshbasnet1000@gmail.com"
-    >
-      LET'S TALK ↗
+    <a href="#home" class="logo">
+      RAJESH<span>.STUDIO</span>
     </a>
 
-  </nav>
+    <button class="menu" id="menu" aria-label="Open navigation">
+      <span></span>
+      <span></span>
+    </button>
 
+    <nav id="nav">
+
+      <a href="#home" class="active">HOME</a>
+      <a href="#about">ABOUT</a>
+      <a href="#services">SERVICES</a>
+      <a href="#video">VIDEO</a>
+      <a href="#motion">MOTION</a>
+      <a href="#work">WORK</a>
+      <a href="#contact">CONTACT</a>
+
+      <a
+        href="mailto:rajeshbasnet1000@gmail.com"
+        class="nav-btn"
+      >
+        LET'S TALK ↗
+      </a>
+
+    </nav>
+
+  </div>
 </header>
 
 
 <main>
 
+  <!-- HERO -->
 
-<!-- ================= HERO ================= -->
+  <section class="hero" id="home">
 
-<section class="hero section" id="home">
+    <div class="hero-grid">
 
-  <div class="hero-copy reveal">
+      <div class="reveal">
 
-    <div class="availability">
-      <i></i>
-      AVAILABLE FOR CREATIVE PROJECTS
-    </div>
-
-    <p class="eyebrow">
-      RAJESH STUDIO / 2026
-    </p>
-
-    <h1>
-      DESIGN.<br>
-      <em>MOTION.</em><br>
-      IMPACT.
-    </h1>
-
-    <p class="hero-sub">
-      Graphic Designer · Video Editor · Motion Graphics Designer
-    </p>
-
-    <p class="hero-text">
-      I create bold visual identities, social media campaigns,
-      cinematic edits and motion graphics that turn ideas into
-      memorable experiences.
-    </p>
-
-    <div class="hero-actions">
-
-      <a
-        class="btn btn-primary"
-        href="#work"
-      >
-        VIEW MY WORK ↗
-      </a>
-
-      <a
-        class="btn btn-ghost"
-        href="#contact"
-      >
-        LET'S WORK TOGETHER ↗
-      </a>
-
-    </div>
-
-  </div>
-
-
-  <div class="hero-art">
-
-    <div class="art-grid"></div>
-
-    <div class="orb orb-one"></div>
-
-    <div class="orb orb-two"></div>
-
-    <div class="frame frame-a">
-      EDIT / 01
-    </div>
-
-    <div class="frame frame-b">
-      MOTION / 02
-    </div>
-
-    <div class="hero-cross">
-      +
-    </div>
-
-    <div class="hero-number">
-
-      01
-
-      <small>
-        CREATIVE<br>
-        VISUALS
-      </small>
-
-    </div>
-
-  </div>
-
-
-  <div class="scroll-cue">
-    SCROLL
-    <span></span>
-  </div>
-
-</section>
-
-
-
-<!-- ================= MARQUEE ================= -->
-
-<section class="marquee">
-
-  <div class="marquee-track">
-
-    <span>GRAPHIC DESIGN</span>
-    <b>•</b>
-
-    <span>VIDEO EDITING</span>
-    <b>•</b>
-
-    <span>MOTION GRAPHICS</span>
-    <b>•</b>
-
-    <span>SOCIAL MEDIA</span>
-    <b>•</b>
-
-    <span>BRANDING</span>
-    <b>•</b>
-
-    <span>CREATIVE DIRECTION</span>
-    <b>•</b>
-
-    <span>GRAPHIC DESIGN</span>
-    <b>•</b>
-
-    <span>VIDEO EDITING</span>
-    <b>•</b>
-
-    <span>MOTION GRAPHICS</span>
-
-  </div>
-
-</section>
-
-
-
-<!-- ================= ABOUT ================= -->
-
-<section class="section about" id="about">
-
-  <div class="section-head reveal">
-
-    <p class="eyebrow">
-      01 / ABOUT
-    </p>
-
-    <h2>
-      TURNING IDEAS INTO<br>
-      <em>VISUAL EXPERIENCES.</em>
-    </h2>
-
-  </div>
-
-
-  <div class="about-grid">
-
-
-    <div class="profile-card reveal">
-
-      <div class="profile-image">
-
-        <div class="profile-initials">
-          RS
+        <div class="availability">
+          <i></i>
+          AVAILABLE FOR CREATIVE PROJECTS
         </div>
 
-        <span class="profile-label">
-          RAJESH<br>
-          STUDIO
-        </span>
+        <p class="eyebrow">
+          RAJESH STUDIO / 2026
+        </p>
+
+        <h1>
+          DESIGN.<br>
+          <em>MOTION.</em><br>
+          IMPACT.
+        </h1>
+
+        <p class="hero-sub">
+          Graphic Designer · Video Editor · Motion Graphics Designer
+        </p>
+
+        <p class="hero-text">
+          I create bold visual identities, social media campaigns,
+          cinematic edits and motion graphics that turn ideas into
+          memorable experiences.
+        </p>
+
+        <div class="actions">
+
+          <a class="btn btn-red" href="#work">
+            VIEW MY WORK ↗
+          </a>
+
+          <a class="btn btn-outline" href="#contact">
+            LET'S WORK TOGETHER ↗
+          </a>
+
+        </div>
 
       </div>
 
-      <div class="profile-meta">
 
-        <span>DESIGN</span>
+      <div class="hero-visual reveal">
 
-        <span>VIDEO</span>
+        <div class="hero-circle">
 
-        <span>MOTION</span>
+          <div class="hero-center">
+            <span>RS</span>
+          </div>
+
+        </div>
+
+        <div class="hero-label label-one">
+          GRAPHIC DESIGN
+        </div>
+
+        <div class="hero-label label-two">
+          VIDEO EDITING
+        </div>
+
+        <div class="hero-label label-three">
+          MOTION GRAPHICS
+        </div>
 
       </div>
 
     </div>
 
+  </section>
 
 
-    <div class="about-copy reveal">
+  <!-- MARQUEE -->
 
-      <p class="large-copy">
+  <div class="marquee">
 
-        I specialize in transforming ideas into compelling
-        visual experiences through graphic design,
-        social media creatives, branding, video editing,
-        and motion graphics.
+    <div class="marquee-track">
 
+      <span>GRAPHIC DESIGN</span>
+      <b>•</b>
+      <span>VIDEO EDITING</span>
+      <b>•</b>
+      <span>MOTION GRAPHICS</span>
+      <b>•</b>
+      <span>SOCIAL MEDIA</span>
+      <b>•</b>
+      <span>BRANDING</span>
+      <b>•</b>
+      <span>CREATIVE DIRECTION</span>
+      <b>•</b>
+
+      <span>GRAPHIC DESIGN</span>
+      <b>•</b>
+      <span>VIDEO EDITING</span>
+      <b>•</b>
+      <span>MOTION GRAPHICS</span>
+
+    </div>
+
+  </div>
+
+
+  <!-- ABOUT -->
+
+  <section class="section" id="about">
+
+    <div class="container">
+
+      <div class="section-title reveal">
+
+        <p class="eyebrow">
+          01 / ABOUT
+        </p>
+
+        <h2>
+          TURNING IDEAS INTO<br>
+          <em>VISUAL EXPERIENCES.</em>
+        </h2>
+
+      </div>
+
+
+      <div class="about-grid">
+
+        <div class="profile reveal">
+
+          <div class="initials">
+            RS
+          </div>
+
+          <div class="profile-name">
+            RAJESH STUDIO<br>
+            CREATIVE PORTFOLIO
+          </div>
+
+        </div>
+
+
+        <div class="about-copy reveal">
+
+          <p class="big">
+            I specialize in transforming ideas into compelling
+            visual experiences through graphic design, social media
+            creatives, branding, video editing and motion graphics.
+          </p>
+
+          <p>
+            Every project is approached with a focus on clarity,
+            visual impact and a strong creative point of view.
+          </p>
+
+
+          <div class="stats">
+
+            <div class="stat">
+              <strong>04+</strong>
+              <span>FEATURED<br>PROJECTS</span>
+            </div>
+
+            <div class="stat">
+              <strong>∞</strong>
+              <span>CREATIVE<br>IDEAS</span>
+            </div>
+
+            <div class="stat">
+              <strong>2026</strong>
+              <span>PORTFOLIO<br>EDITION</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SERVICES -->
+
+  <section class="section services" id="services">
+
+    <div class="container">
+
+      <div class="section-title reveal">
+
+        <p class="eyebrow">
+          02 / SERVICES
+        </p>
+
+        <h2>
+          WHAT I <em>CREATE.</em>
+        </h2>
+
+      </div>
+
+
+      <div>
+
+        <div class="service reveal">
+
+          <span class="service-no">01</span>
+          <span class="service-icon">✦</span>
+
+          <div>
+            <h3>GRAPHIC DESIGN</h3>
+            <p>
+              Social media creatives, advertising designs,
+              campaign visuals, posters, banners and promotional artwork.
+            </p>
+          </div>
+
+          <span class="service-arrow">↗</span>
+
+        </div>
+
+
+        <div class="service reveal">
+
+          <span class="service-no">02</span>
+          <span class="service-icon">▶</span>
+
+          <div>
+            <h3>VIDEO EDITING</h3>
+            <p>
+              Professional short-form and long-form editing,
+              reels, promotional videos, social content and cinematic edits.
+            </p>
+          </div>
+
+          <span class="service-arrow">↗</span>
+
+        </div>
+
+
+        <div class="service reveal">
+
+          <span class="service-no">03</span>
+          <span class="service-icon">◈</span>
+
+          <div>
+            <h3>MOTION GRAPHICS</h3>
+            <p>
+              Animated typography, logo animation, promotional motion
+              graphics, social animations and visual effects.
+            </p>
+          </div>
+
+          <span class="service-arrow">↗</span>
+
+        </div>
+
+
+        <div class="service reveal">
+
+          <span class="service-no">04</span>
+          <span class="service-icon">◎</span>
+
+          <div>
+            <h3>BRAND VISUALS</h3>
+            <p>
+              Visual identity systems, promotional materials
+              and consistent brand communication.
+            </p>
+          </div>
+
+          <span class="service-arrow">↗</span>
+
+        </div>
+
+
+        <div class="service reveal">
+
+          <span class="service-no">05</span>
+          <span class="service-icon">▦</span>
+
+          <div>
+            <h3>SOCIAL MEDIA DESIGN</h3>
+            <p>
+              High-impact creative content for Instagram,
+              TikTok, Facebook and other platforms.
+            </p>
+          </div>
+
+          <span class="service-arrow">↗</span>
+
+        </div>
+
+
+        <div class="service reveal">
+
+          <span class="service-no">06</span>
+          <span class="service-icon">⌁</span>
+
+          <div>
+            <h3>CREATIVE DIRECTION</h3>
+            <p>
+              Visual concepts, campaign direction,
+              composition and complete creative execution.
+            </p>
+          </div>
+
+          <span class="service-arrow">↗</span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- VIDEO EDITOR -->
+
+  <section class="section" id="video">
+
+    <div class="container">
+
+      <div class="video-intro reveal">
+
+        <div>
+          <p class="eyebrow">
+            03 / VIDEO EDITOR
+          </p>
+
+          <h2>
+            VIDEO THAT<br>
+            <em>MOVES.</em>
+          </h2>
+        </div>
+
+        <p>
+          Professional edits built for attention, rhythm and retention —
+          from social reels to cinematic brand stories.
+        </p>
+
+      </div>
+
+
+      <div class="video-grid">
+
+
+        <article class="video-card reveal">
+
+          <div class="video-media">
+
+            <span class="media-label">
+              REELS / 01
+            </span>
+
+            <button class="play" aria-label="Video preview">
+              ▶
+            </button>
+
+            <div class="timeline"></div>
+
+          </div>
+
+          <div class="video-info">
+
+            <h3>FAST / FOCUSED</h3>
+            <span>Short-form Edit</span>
+
+          </div>
+
+        </article>
+
+
+        <article class="video-card reveal">
+
+          <div class="video-media">
+
+            <span class="media-label">
+              BRAND / 02
+            </span>
+
+            <button class="play" aria-label="Video preview">
+              ▶
+            </button>
+
+            <div class="timeline"></div>
+
+          </div>
+
+          <div class="video-info">
+
+            <h3>BRAND IN MOTION</h3>
+            <span>Promotional Video</span>
+
+          </div>
+
+        </article>
+
+
+        <article class="video-card reveal">
+
+          <div class="video-media">
+
+            <span class="media-label">
+              CINEMATIC / 03
+            </span>
+
+            <button class="play" aria-label="Video preview">
+              ▶
+            </button>
+
+            <div class="timeline"></div>
+
+          </div>
+
+          <div class="video-info">
+
+            <h3>VISUAL STORY</h3>
+            <span>Cinematic Edit</span>
+
+          </div>
+
+        </article>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- MOTION -->
+
+  <section class="section motion" id="motion">
+
+    <div class="container">
+
+      <div class="motion-grid">
+
+        <div class="motion-art reveal">
+
+          <div class="motion-word">
+            MOVE
+          </div>
+
+        </div>
+
+
+        <div class="motion-copy reveal">
+
+          <p class="eyebrow">
+            04 / MOTION GRAPHICS
+          </p>
+
+          <h2>
+            MOTION BRINGS<br>
+            <em>IDEAS TO LIFE.</em>
+          </h2>
+
+          <p>
+            Animated typography, logo reveals, social motion
+            and promotional graphics designed to make brands feel alive.
+          </p>
+
+
+          <div class="chips">
+
+            <span class="chip">MOTION DESIGN</span>
+            <span class="chip">LOGO ANIMATION</span>
+            <span class="chip">KINETIC TYPE</span>
+            <span class="chip">SOCIAL MOTION</span>
+            <span class="chip">PROMOTIONAL</span>
+
+          </div>
+
+
+          <a href="#work" class="btn btn-red">
+            EXPLORE MOTION WORK ↗
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PORTFOLIO -->
+
+  <section class="section" id="work">
+
+    <div class="container">
+
+      <div class="work-intro reveal">
+
+        <div>
+
+          <p class="eyebrow">
+            05 / PORTFOLIO
+          </p>
+
+          <h2>
+            SELECTED<br>
+            <em>WORK.</em>
+          </h2>
+
+        </div>
+
+        <p>
+          A flexible gallery for campaigns, identities,
+          social creatives, video edits and motion experiments.
+        </p>
+
+      </div>
+
+
+      <div class="filters">
+
+        <button class="filter active" data-filter="all">
+          ALL
+        </button>
+
+        <button class="filter" data-filter="graphic">
+          GRAPHIC DESIGN
+        </button>
+
+        <button class="filter" data-filter="social">
+          SOCIAL MEDIA
+        </button>
+
+        <button class="filter" data-filter="branding">
+          BRANDING
+        </button>
+
+        <button class="filter" data-filter="video">
+          VIDEO EDITING
+        </button>
+
+        <button class="filter" data-filter="motion">
+          MOTION GRAPHICS
+        </button>
+
+      </div>
+
+
+      <div class="portfolio">
+
+
+        <article class="project reveal" data-type="social">
+
+          <div class="project-image p1">
+
+            <span class="project-number">01</span>
+
+            <span class="big">
+              SOCIAL
+            </span>
+
+          </div>
+
+          <div class="project-info">
+
+            <div>
+
+              <small>SOCIAL MEDIA</small>
+
+              <h3>
+                JEWELLERY CAMPAIGN
+              </h3>
+
+              <p>
+                Art Direction · Social Media
+              </p>
+
+            </div>
+
+            <span class="project-arrow">↗</span>
+
+          </div>
+
+        </article>
+
+
+        <article class="project reveal" data-type="graphic">
+
+          <div class="project-image p2">
+
+            <span class="project-number">
+              02
+            </span>
+
+            <span class="big">
+              STUDY
+            </span>
+
+          </div>
+
+          <div class="project-info">
+
+            <div>
+
+              <small>CAMPAIGN DESIGN</small>
+
+              <h3>
+                STUDY ABROAD
+              </h3>
+
+              <p>
+                Campaign · Information Graphic
+              </p>
+
+            </div>
+
+            <span class="project-arrow">↗</span>
+
+          </div>
+
+        </article>
+
+
+        <article class="project reveal" data-type="branding">
+
+          <div class="project-image p3">
+
+            <span class="project-number">
+              03
+            </span>
+
+            <span class="big">
+              BRAND
+            </span>
+
+          </div>
+
+          <div class="project-info">
+
+            <div>
+
+              <small>BRANDING</small>
+
+              <h3>
+                BRAND SHOWCASE
+              </h3>
+
+              <p>
+                Portfolio · Promotional Design
+              </p>
+
+            </div>
+
+            <span class="project-arrow">↗</span>
+
+          </div>
+
+        </article>
+
+
+        <article class="project reveal" data-type="social">
+
+          <div class="project-image p4">
+
+            <span class="project-number">
+              04
+            </span>
+
+            <span class="big">
+              FOOD
+            </span>
+
+          </div>
+
+          <div class="project-info">
+
+            <div>
+
+              <small>ADVERTISING</small>
+
+              <h3>
+                FOOD CAMPAIGN
+              </h3>
+
+              <p>
+                Advertising · Social Media
+              </p>
+
+            </div>
+
+            <span class="project-arrow">↗</span>
+
+          </div>
+
+        </article>
+
+
+        <article class="project reveal" data-type="video">
+
+          <div class="project-image p5">
+
+            <span class="project-number">
+              05
+            </span>
+
+            <span class="big">
+              VIDEO
+            </span>
+
+          </div>
+
+          <div class="project-info">
+
+            <div>
+
+              <small>VIDEO EDITING</small>
+
+              <h3>
+                VIDEO CAMPAIGN
+              </h3>
+
+              <p>
+                Video Editing · Social Media
+              </p>
+
+            </div>
+
+            <span class="project-arrow">↗</span>
+
+          </div>
+
+        </article>
+
+
+        <article class="project reveal" data-type="motion">
+
+          <div class="project-image p6">
+
+            <span class="project-number">
+              06
+            </span>
+
+            <span class="big">
+              MOTION
+            </span>
+
+          </div>
+
+          <div class="project-info">
+
+            <div>
+
+              <small>MOTION GRAPHICS</small>
+
+              <h3>
+                MOTION CAMPAIGN
+              </h3>
+
+              <p>
+                Motion Graphics · Animation
+              </p>
+
+            </div>
+
+            <span class="project-arrow">↗</span>
+
+          </div>
+
+        </article>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PROCESS -->
+
+  <section class="section process">
+
+    <div class="container">
+
+      <div class="section-title reveal">
+
+        <p class="eyebrow">
+          06 / PROCESS
+        </p>
+
+        <h2>
+          HOW I <em>WORK.</em>
+        </h2>
+
+      </div>
+
+
+      <div class="process-grid">
+
+
+        <div class="step reveal">
+
+          <span class="step-number">
+            01
+          </span>
+
+          <h3>
+            DISCOVER
+          </h3>
+
+          <p>
+            Understand the idea, audience and objective.
+          </p>
+
+        </div>
+
+
+        <div class="step reveal">
+
+          <span class="step-number">
+            02
+          </span>
+
+          <h3>
+            CONCEPT
+          </h3>
+
+          <p>
+            Develop the creative direction and visual concept.
+          </p>
+
+        </div>
+
+
+        <div class="step reveal">
+
+          <span class="step-number">
+            03
+          </span>
+
+          <h3>
+            CREATE
+          </h3>
+
+          <p>
+            Design, edit, animate and refine the project.
+          </p>
+
+        </div>
+
+
+        <div class="step reveal">
+
+          <span class="step-number">
+            04
+          </span>
+
+          <h3>
+            DELIVER
+          </h3>
+
+          <p>
+            Deliver polished, professional final assets.
+          </p>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- TESTIMONIAL -->
+
+  <section class="section">
+
+    <div class="container">
+
+      <div class="section-title reveal">
+
+        <p class="eyebrow">
+          07 / TESTIMONIALS
+        </p>
+
+        <h2>
+          WORDS FROM<br>
+          <em>COLLABORATORS.</em>
+        </h2>
+
+      </div>
+
+
+      <div class="testimonial reveal">
+
+        <div class="quote-mark">
+          “
+        </div>
+
+
+        <blockquote class="quote active">
+          Rajesh brought a sharp visual direction to the project
+          and made the final campaign feel far more premium.
+        </blockquote>
+
+
+        <blockquote class="quote">
+          The editing had great rhythm and the motion details
+          made the content feel alive.
+        </blockquote>
+
+
+        <blockquote class="quote">
+          Fast communication, strong ideas and a clean final
+          delivery. A great creative partner.
+        </blockquote>
+
+
+        <div class="quote-controls">
+
+          <button id="prevQuote">
+            ←
+          </button>
+
+          <span id="quoteNumber">
+            01 / 03
+          </span>
+
+          <button id="nextQuote">
+            →
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT -->
+
+  <section class="section contact" id="contact">
+
+    <div class="container">
+
+      <p class="eyebrow">
+        08 / CONTACT
       </p>
+
+      <h2>
+        LET'S CREATE SOMETHING<br>
+        <em>UNFORGETTABLE.</em>
+      </h2>
 
       <p>
-
-        Every project is approached with a focus on clarity,
-        visual impact and a strong creative point of view.
-
+        Have a project, campaign or creative idea?
+        Let's turn it into something people remember.
       </p>
 
 
-      <div class="stats">
-
-        <div>
-
-          <strong data-count="4">
-            0
-          </strong>
-
-          <span>
-            FEATURED<br>
-            PROJECTS+
-          </span>
-
-        </div>
-
-
-        <div>
-
-          <strong>
-            ∞
-          </strong>
-
-          <span>
-            CREATIVE<br>
-            IDEAS
-          </span>
-
-        </div>
-
-
-        <div>
-
-          <strong>
-            2026
-          </strong>
-
-          <span>
-            PORTFOLIO<br>
-            EDITION
-          </span>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- ================= SERVICES ================= -->
-
-<section class="section services" id="services">
-
-  <div class="section-head reveal">
-
-    <p class="eyebrow">
-      02 / SERVICES
-    </p>
-
-    <h2>
-      WHAT I <em>CREATE.</em>
-    </h2>
-
-  </div>
-
-
-  <div class="service-list">
-
-
-    <article class="service reveal">
-
-      <span class="service-no">
-        01
-      </span>
-
-      <span class="service-icon">
-        ✦
-      </span>
-
-      <div>
-
-        <h3>
-          GRAPHIC DESIGN
-        </h3>
-
-        <p>
-          Social media creatives, advertising designs,
-          campaign visuals, posters, banners and
-          promotional artwork.
-        </p>
-
-      </div>
-
-      <span class="arrow">
-        ↗
-      </span>
-
-    </article>
-
-
-
-    <article class="service reveal">
-
-      <span class="service-no">
-        02
-      </span>
-
-      <span class="service-icon">
-        ▶
-      </span>
-
-      <div>
-
-        <h3>
-          VIDEO EDITING
-        </h3>
-
-        <p>
-          Professional short-form and long-form editing,
-          reels, promotional videos, social content and
-          cinematic edits.
-        </p>
-
-      </div>
-
-      <span class="arrow">
-        ↗
-      </span>
-
-    </article>
-
-
-
-    <article class="service reveal">
-
-      <span class="service-no">
-        03
-      </span>
-
-      <span class="service-icon">
-        ◈
-      </span>
-
-      <div>
-
-        <h3>
-          MOTION GRAPHICS
-        </h3>
-
-        <p>
-          Animated typography, logo animation,
-          promotional motion graphics, social animations
-          and visual effects.
-        </p>
-
-      </div>
-
-      <span class="arrow">
-        ↗
-      </span>
-
-    </article>
-
-
-
-    <article class="service reveal">
-
-      <span class="service-no">
-        04
-      </span>
-
-      <span class="service-icon">
-        ◎
-      </span>
-
-      <div>
-
-        <h3>
-          BRAND VISUALS
-        </h3>
-
-        <p>
-          Visual identity systems, promotional materials
-          and consistent brand communication.
-        </p>
-
-      </div>
-
-      <span class="arrow">
-        ↗
-      </span>
-
-    </article>
-
-
-
-    <article class="service reveal">
-
-      <span class="service-no">
-        05
-      </span>
-
-      <span class="service-icon">
-        ▦
-      </span>
-
-      <div>
-
-        <h3>
-          SOCIAL MEDIA DESIGN
-        </h3>
-
-        <p>
-          High-converting creative content for Instagram,
-          TikTok, Facebook and other platforms.
-        </p>
-
-      </div>
-
-      <span class="arrow">
-        ↗
-      </span>
-
-    </article>
-
-
-
-    <article class="service reveal">
-
-      <span class="service-no">
-        06
-      </span>
-
-      <span class="service-icon">
-        ⌁
-      </span>
-
-      <div>
-
-        <h3>
-          CREATIVE DIRECTION
-        </h3>
-
-        <p>
-          Visual concepts, campaign direction,
-          composition and complete creative execution.
-        </p>
-
-      </div>
-
-      <span class="arrow">
-        ↗
-      </span>
-
-    </article>
-
-
-  </div>
-
-</section>
-
-
-
-<!-- ================= VIDEO ================= -->
-
-<section class="section cinematic" id="video">
-
-  <div class="section-head split reveal">
-
-    <div>
-
-      <p class="eyebrow">
-        03 / VIDEO EDITOR
-      </p>
-
-      <h2>
-        VIDEO THAT<br>
-        <em>MOVES.</em>
-      </h2>
-
-    </div>
-
-    <p>
-      Professional edits built for attention,
-      rhythm and retention — from social reels
-      to cinematic brand stories.
-    </p>
-
-  </div>
-
-
-  <div class="video-grid">
-
-
-    <article class="video-card tall reveal">
-
-      <div class="media media-one">
-
-        <span class="media-tag">
-          REELS / 01
-        </span>
-
-        <button class="play">
-          ▶
-        </button>
-
-        <div class="timeline">
-          <i></i>
-        </div>
-
-      </div>
-
-      <div class="card-info">
-
-        <h3>
-          FAST / FOCUSED
-        </h3>
-
-        <span>
-          Short-form Edit
-        </span>
-
-      </div>
-
-    </article>
-
-
-
-    <article class="video-card reveal">
-
-      <div class="media media-two">
-
-        <span class="media-tag">
-          BRAND / 02
-        </span>
-
-        <button class="play">
-          ▶
-        </button>
-
-        <div class="timeline">
-          <i></i>
-        </div>
-
-      </div>
-
-      <div class="card-info">
-
-        <h3>
-          BRAND IN MOTION
-        </h3>
-
-        <span>
-          Promotional Video
-        </span>
-
-      </div>
-
-    </article>
-
-
-
-    <article class="video-card reveal">
-
-      <div class="media media-three">
-
-        <span class="media-tag">
-          CINEMATIC / 03
-        </span>
-
-        <button class="play">
-          ▶
-        </button>
-
-        <div class="timeline">
-          <i></i>
-        </div>
-
-      </div>
-
-      <div class="card-info">
-
-        <h3>
-          VISUAL STORY
-        </h3>
-
-        <span>
-          Cinematic Edit
-        </span>
-
-      </div>
-
-    </article>
-
-
-  </div>
-
-
-  <a
-    class="text-link"
-    href="#work"
-  >
-    VIEW VIDEO WORK ↗
-  </a>
-
-</section>
-
-
-
-<!-- ================= MOTION ================= -->
-
-<section class="section motion-section" id="motion">
-
-
-  <div class="motion-visual reveal">
-
-    <div class="wave"></div>
-
-    <div class="motion-orbit"></div>
-
-    <div class="motion-word">
-      MOVE
-    </div>
-
-    <div class="motion-tag">
-      MOTION / 03
-    </div>
-
-  </div>
-
-
-
-  <div class="motion-copy reveal">
-
-    <p class="eyebrow">
-      04 / MOTION GRAPHICS
-    </p>
-
-    <h2>
-      MOTION BRINGS<br>
-      <em>IDEAS TO LIFE.</em>
-    </h2>
-
-    <p>
-      Animated typography, logo reveals, social motion
-      and promotional graphics designed to make brands
-      feel alive.
-    </p>
-
-
-    <div class="chips">
-
-      <span>
-        MOTION DESIGN
-      </span>
-
-      <span>
-        LOGO ANIMATION
-      </span>
-
-      <span>
-        KINETIC TYPE
-      </span>
-
-      <span>
-        SOCIAL MOTION
-      </span>
-
-      <span>
-        PROMOTIONAL
-      </span>
-
-    </div>
-
-
-    <a
-      class="btn btn-primary"
-      href="#work"
-    >
-      EXPLORE MOTION WORK ↗
-    </a>
-
-  </div>
-
-</section>
-
-
-
-<!-- ================= PORTFOLIO ================= -->
-
-<section class="section work" id="work">
-
-
-  <div class="section-head split reveal">
-
-    <div>
-
-      <p class="eyebrow">
-        05 / PORTFOLIO
-      </p>
-
-      <h2>
-        SELECTED<br>
-        <em>WORK.</em>
-      </h2>
-
-    </div>
-
-    <p>
-      A flexible gallery for campaigns,
-      identities, social creatives, video edits
-      and motion experiments.
-    </p>
-
-  </div>
-
-
-
-  <div class="filters">
-
-    <button
-      class="filter active"
-      data-filter="all"
-    >
-      ALL
-    </button>
-
-    <button
-      class="filter"
-      data-filter="graphic"
-    >
-      GRAPHIC DESIGN
-    </button>
-
-    <button
-      class="filter"
-      data-filter="social"
-    >
-      SOCIAL MEDIA
-    </button>
-
-    <button
-      class="filter"
-      data-filter="branding"
-    >
-      BRANDING
-    </button>
-
-    <button
-      class="filter"
-      data-filter="video"
-    >
-      VIDEO EDITING
-    </button>
-
-    <button
-      class="filter"
-      data-filter="motion"
-    >
-      MOTION GRAPHICS
-    </button>
-
-  </div>
-
-
-
-  <div class="portfolio-grid">
-
-
-    <article
-      class="project project-large reveal"
-      data-type="social"
-    >
-
-      <div class="project-image p1">
-        <span>01</span>
-      </div>
-
-      <div class="project-meta">
-
-        <span>
-          SOCIAL MEDIA
-        </span>
-
-        <h3>
-          JEWELLERY CAMPAIGN
-        </h3>
-
-        <p>
-          Art Direction · Social Media
-        </p>
-
-        <b>
-          ↗
-        </b>
-
-      </div>
-
-    </article>
-
-
-
-    <article
-      class="project reveal"
-      data-type="graphic"
-    >
-
-      <div class="project-image p2">
-        <span>02</span>
-      </div>
-
-      <div class="project-meta">
-
-        <span>
-          CAMPAIGN DESIGN
-        </span>
-
-        <h3>
-          STUDY ABROAD
-        </h3>
-
-        <p>
-          Campaign · Information Graphic
-        </p>
-
-        <b>
-          ↗
-        </b>
-
-      </div>
-
-    </article>
-
-
-
-    <article
-      class="project reveal"
-      data-type="branding"
-    >
-
-      <div class="project-image p3">
-        <span>03</span>
-      </div>
-
-      <div class="project-meta">
-
-        <span>
-          BRANDING
-        </span>
-
-        <h3>
-          BRAND SHOWCASE
-        </h3>
-
-        <p>
-          Portfolio · Promotional Design
-        </p>
-
-        <b>
-          ↗
-        </b>
-
-      </div>
-
-    </article>
-
-
-
-    <article
-      class="project reveal"
-      data-type="social"
-    >
-
-      <div class="project-image p4">
-        <span>04</span>
-      </div>
-
-      <div class="project-meta">
-
-        <span>
-          ADVERTISING
-        </span>
-
-        <h3>
-          FOOD CAMPAIGN
-        </h3>
-
-        <p>
-          Advertising · Social Media
-        </p>
-
-        <b>
-          ↗
-        </b>
-
-      </div>
-
-    </article>
-
-
-
-    <article
-      class="project reveal"
-      data-type="video"
-    >
-
-      <div class="project-image p5">
-
-        <span>
-          05
-        </span>
-
-        <button class="mini-play">
-          ▶
+      <div class="contact-actions">
+
+        <a
+          href="mailto:rajeshbasnet1000@gmail.com"
+          class="btn btn-red"
+        >
+          EMAIL ME ↗
+        </a>
+
+        <button
+          class="btn btn-outline"
+          id="copyEmail"
+        >
+          COPY EMAIL ⧉
         </button>
 
       </div>
 
-      <div class="project-meta">
-
-        <span>
-          VIDEO EDITING
-        </span>
-
-        <h3>
-          VIDEO CAMPAIGN
-        </h3>
-
-        <p>
-          Video Editing · Social Media
-        </p>
-
-        <b>
-          ↗
-        </b>
-
-      </div>
-
-    </article>
-
-
-
-    <article
-      class="project reveal"
-      data-type="motion"
-    >
-
-      <div class="project-image p6">
-
-        <span>
-          06
-        </span>
-
-        <div class="motion-lines"></div>
-
-      </div>
-
-      <div class="project-meta">
-
-        <span>
-          MOTION GRAPHICS
-        </span>
-
-        <h3>
-          MOTION CAMPAIGN
-        </h3>
-
-        <p>
-          Motion Graphics · Animation
-        </p>
-
-        <b>
-          ↗
-        </b>
-
-      </div>
-
-    </article>
-
-
-  </div>
-
-</section>
-
-
-
-<!-- ================= PROCESS ================= -->
-
-<section class="process">
-
-  <div class="section process-inner">
-
-
-    <div class="section-head reveal">
-
-      <p class="eyebrow">
-        06 / PROCESS
-      </p>
-
-      <h2>
-        HOW I <em>WORK.</em>
-      </h2>
-
-    </div>
-
-
-
-    <div class="process-grid">
-
-
-      <div class="step reveal">
-
-        <span>
-          01
-        </span>
-
-        <h3>
-          DISCOVER
-        </h3>
-
-        <p>
-          Understand the idea, audience
-          and objective.
-        </p>
-
-      </div>
-
-
-
-      <div class="step reveal">
-
-        <span>
-          02
-        </span>
-
-        <h3>
-          CONCEPT
-        </h3>
-
-        <p>
-          Develop the creative direction
-          and visual concept.
-        </p>
-
-      </div>
-
-
-
-      <div class="step reveal">
-
-        <span>
-          03
-        </span>
-
-        <h3>
-          CREATE
-        </h3>
-
-        <p>
-          Design, edit, animate and
-          refine the project.
-        </p>
-
-      </div>
-
-
-
-      <div class="step reveal">
-
-        <span>
-          04
-        </span>
-
-        <h3>
-          DELIVER
-        </h3>
-
-        <p>
-          Deliver polished, professional
-          final assets.
-        </p>
-
-      </div>
-
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- ================= TESTIMONIALS ================= -->
-
-<section class="section testimonials">
-
-  <div class="section-head reveal">
-
-    <p class="eyebrow">
-      07 / TESTIMONIALS
-    </p>
-
-    <h2>
-      WORDS FROM<br>
-      <em>COLLABORATORS.</em>
-    </h2>
-
-  </div>
-
-
-
-  <div class="quote-wrap reveal">
-
-    <div class="quote-mark">
-      “
-    </div>
-
-
-    <div class="quotes">
-
-      <blockquote class="quote active">
-
-        Rajesh brought a sharp visual direction
-        to the project and made the final campaign
-        feel far more premium.
-
-      </blockquote>
-
-
-      <blockquote class="quote">
-
-        The editing had great rhythm and the
-        motion details made the content feel alive.
-
-      </blockquote>
-
-
-      <blockquote class="quote">
-
-        Fast communication, strong ideas and a
-        clean final delivery. A great creative partner.
-
-      </blockquote>
-
-    </div>
-
-
-
-    <div class="quote-controls">
-
-      <button id="prevQuote">
-        ←
-      </button>
-
-      <span id="quoteIndex">
-        01 / 03
-      </span>
-
-      <button id="nextQuote">
-        →
-      </button>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- ================= CONTACT ================= -->
-
-<section class="contact" id="contact">
-
-  <div class="section contact-inner">
-
-    <p class="eyebrow">
-      08 / CONTACT
-    </p>
-
-    <h2>
-      LET'S CREATE SOMETHING<br>
-      <em>UNFORGETTABLE.</em>
-    </h2>
-
-    <p>
-      Have a project, campaign or creative idea?
-      Let's turn it into something people remember.
-    </p>
-
-
-    <div class="contact-actions">
 
       <a
-        class="btn btn-primary"
+        class="email"
         href="mailto:rajeshbasnet1000@gmail.com"
       >
-        EMAIL ME ↗
+        rajeshbasnet1000@gmail.com
       </a>
 
-      <button class="btn btn-ghost copy-email">
-        COPY EMAIL ⧉
-      </button>
-
     </div>
 
-
-    <a
-      class="email"
-      href="mailto:rajeshbasnet1000@gmail.com"
-    >
-      rajeshbasnet1000@gmail.com
-    </a>
-
-
-    <div class="copy-toast">
-      Email copied!
-    </div>
-
-  </div>
-
-</section>
-
+  </section>
 
 </main>
 
 
+<!-- FOOTER -->
 
-<!-- ================= FOOTER ================= -->
+<footer>
 
-<footer class="footer">
-
-
-  <div>
-
-    <a
-      class="logo"
-      href="#top"
-    >
-      RAJESH<span>.STUDIO</span>
-    </a>
-
-    <p>
-      Graphic Designer · Video Editor · Motion Graphics Designer
-    </p>
-
-  </div>
-
-
-
-  <div class="footer-links">
-
-    <a
-      href="mailto:rajeshbasnet1000@gmail.com"
-    >
-      rajeshbasnet1000@gmail.com
-    </a>
-
+  <div class="footer-top">
 
     <div>
 
-      <a
-        href="#"
-        data-placeholder="Instagram"
-      >
-        Instagram
+      <a href="#home" class="logo">
+        RAJESH<span>.STUDIO</span>
       </a>
 
-      <a
-        href="#"
-        data-placeholder="TikTok"
-      >
-        TikTok
+      <p>
+        Graphic Designer · Video Editor · Motion Graphics Designer
+      </p>
+
+    </div>
+
+
+    <div class="socials">
+
+      <a href="mailto:rajeshbasnet1000@gmail.com">
+        EMAIL
       </a>
 
-      <a
-        href="#"
-        data-placeholder="Behance"
-      >
-        Behance
+      <a href="#" onclick="return placeholderLink('Instagram')">
+        INSTAGRAM
       </a>
 
-      <a
-        href="#"
-        data-placeholder="Dribbble"
-      >
-        Dribbble
+      <a href="#" onclick="return placeholderLink('TikTok')">
+        TIKTOK
       </a>
 
-      <a
-        href="#"
-        data-placeholder="LinkedIn"
-      >
-        LinkedIn
+      <a href="#" onclick="return placeholderLink('Behance')">
+        BEHANCE
+      </a>
+
+      <a href="#" onclick="return placeholderLink('LinkedIn')">
+        LINKEDIN
       </a>
 
     </div>
 
   </div>
-
 
 
   <div class="footer-bottom">
@@ -1390,17 +2481,278 @@
       © 2026 Rajesh Studio. All rights reserved.
     </span>
 
-    <a href="#top">
+    <a href="#home">
       BACK TO TOP ↑
     </a>
 
   </div>
 
-
 </footer>
 
 
-<script src="script.js"></script>
+<div class="toast" id="toast">
+  Email copied!
+</div>
+
+
+<script>
+
+  /* ================= MOBILE MENU ================= */
+
+  const menu = document.getElementById("menu");
+  const nav = document.getElementById("nav");
+
+  menu.addEventListener("click", () => {
+
+    nav.classList.toggle("open");
+
+    menu.setAttribute(
+      "aria-expanded",
+      nav.classList.contains("open")
+    );
+
+  });
+
+
+  document.querySelectorAll("nav a").forEach(link => {
+
+    link.addEventListener("click", () => {
+      nav.classList.remove("open");
+      menu.setAttribute("aria-expanded", "false");
+    });
+
+  });
+
+
+  /* ================= ACTIVE NAV ================= */
+
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll("nav a[href^='#']");
+
+  const navObserver = new IntersectionObserver(
+    entries => {
+
+      entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+          navLinks.forEach(link => {
+            link.classList.remove("active");
+          });
+
+          const active = document.querySelector(
+            `nav a[href="#${entry.target.id}"]`
+          );
+
+          if (active) {
+            active.classList.add("active");
+          }
+
+        }
+
+      });
+
+    },
+    {
+      rootMargin: "-35% 0px -55% 0px"
+    }
+  );
+
+  sections.forEach(section => navObserver.observe(section));
+
+
+  /* ================= REVEAL ================= */
+
+  const revealItems = document.querySelectorAll(".reveal");
+
+  const revealObserver = new IntersectionObserver(
+    entries => {
+
+      entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+          entry.target.classList.add("visible");
+
+          revealObserver.unobserve(entry.target);
+
+        }
+
+      });
+
+    },
+    {
+      threshold: .12
+    }
+  );
+
+  revealItems.forEach(item => {
+    revealObserver.observe(item);
+  });
+
+
+  /* ================= PORTFOLIO FILTER ================= */
+
+  const filters = document.querySelectorAll(".filter");
+  const projects = document.querySelectorAll(".project");
+
+  filters.forEach(filter => {
+
+    filter.addEventListener("click", () => {
+
+      filters.forEach(button => {
+        button.classList.remove("active");
+      });
+
+      filter.classList.add("active");
+
+      const selected = filter.dataset.filter;
+
+      projects.forEach(project => {
+
+        const type = project.dataset.type;
+
+        if (selected === "all" || selected === type) {
+          project.classList.remove("hidden");
+        } else {
+          project.classList.add("hidden");
+        }
+
+      });
+
+    });
+
+  });
+
+
+  /* ================= TESTIMONIAL SLIDER ================= */
+
+  const quotes = document.querySelectorAll(".quote");
+  const prevQuote = document.getElementById("prevQuote");
+  const nextQuote = document.getElementById("nextQuote");
+  const quoteNumber = document.getElementById("quoteNumber");
+
+  let currentQuote = 0;
+
+  function showQuote(index) {
+
+    currentQuote =
+      (index + quotes.length) % quotes.length;
+
+    quotes.forEach((quote, i) => {
+      quote.classList.toggle(
+        "active",
+        i === currentQuote
+      );
+    });
+
+    quoteNumber.textContent =
+      String(currentQuote + 1).padStart(2, "0")
+      + " / "
+      + String(quotes.length).padStart(2, "0");
+
+  }
+
+  prevQuote.addEventListener("click", () => {
+    showQuote(currentQuote - 1);
+  });
+
+  nextQuote.addEventListener("click", () => {
+    showQuote(currentQuote + 1);
+  });
+
+
+  /* ================= COPY EMAIL ================= */
+
+  const copyEmail = document.getElementById("copyEmail");
+  const toast = document.getElementById("toast");
+
+  copyEmail.addEventListener("click", async () => {
+
+    const email = "rajeshbasnet1000@gmail.com";
+
+    try {
+
+      await navigator.clipboard.writeText(email);
+
+    } catch {
+
+      const input = document.createElement("textarea");
+
+      input.value = email;
+
+      document.body.appendChild(input);
+
+      input.select();
+
+      document.execCommand("copy");
+
+      input.remove();
+
+    }
+
+    toast.classList.add("show");
+
+    setTimeout(() => {
+      toast.classList.remove("show");
+    }, 2000);
+
+  });
+
+
+  /* ================= VIDEO PREVIEW ================= */
+
+  document.querySelectorAll(".play").forEach(button => {
+
+    button.addEventListener("click", () => {
+
+      toast.textContent =
+        "Add your video URL to enable playback.";
+
+      toast.classList.add("show");
+
+      setTimeout(() => {
+        toast.classList.remove("show");
+        toast.textContent = "Email copied!";
+      }, 2500);
+
+    });
+
+  });
+
+
+  /* ================= PLACEHOLDER SOCIAL LINKS ================= */
+
+  function placeholderLink(name) {
+
+    toast.textContent =
+      name + " link can be added here.";
+
+    toast.classList.add("show");
+
+    setTimeout(() => {
+
+      toast.classList.remove("show");
+
+    }, 2200);
+
+    return false;
+
+  }
+
+
+  /* ================= KEYBOARD ACCESS ================= */
+
+  document.addEventListener("keydown", event => {
+
+    if (event.key === "Escape") {
+      nav.classList.remove("open");
+      menu.setAttribute("aria-expanded", "false");
+    }
+
+  });
+
+</script>
 
 </body>
 </html>
